@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmxh71xt84k5v"]
+
+[ext_resource type="Shader" path="res://Util/Shaders/radial_progress_bar.gdshader" id="1_7r74h"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4yu4u"]
+shader = ExtResource("1_7r74h")
+shader_parameter/bar_color0 = Color(1, 0, 0, 1)
+shader_parameter/bar_color1 = Color(0, 1, 0, 1)
+shader_parameter/percent_complete = 1.0
+shader_parameter/feather = 0.0
+
+[node name="RadialProgressBar" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_4yu4u")
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(1, 1, 1, 0)

@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://cwi2u5nvwm1a7"]
+
+[ext_resource type="Script" path="res://Controllers/GameController/game_controller.gd" id="1_wa5lg"]
+[ext_resource type="Shader" path="res://Util/Shaders/space_background.gdshader" id="2_m83yt"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u8ewb"]
+shader = ExtResource("2_m83yt")
+shader_parameter/bg_color = null
+
+[node name="GameController" type="Node"]
+script = ExtResource("1_wa5lg")
+
+[node name="World2D" type="Node2D" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 3
+
+[node name="GUI" type="Control" parent="CanvasLayer"]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="BackgroundColorRect" type="ColorRect" parent="CanvasLayer"]
+process_mode = 3
+z_index = -50
+z_as_relative = false
+material = SubResource("ShaderMaterial_u8ewb")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)

@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://bxwxiwfi1i27r"]
+
+[ext_resource type="Shader" path="res://Util/Shaders/linear_progress_bar.gdshader" id="1_ya83n"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7wa57"]
+shader = ExtResource("1_ya83n")
+shader_parameter/bar_color0 = Color(1, 0, 0, 1)
+shader_parameter/bar_color1 = Color(0, 1, 0, 1)
+shader_parameter/percent_complete = 1.0
+
+[node name="LinearProgressBar" type="Control"]
+custom_minimum_size = Vector2(100, 10)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 100.0
+offset_bottom = 10.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_7wa57")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)

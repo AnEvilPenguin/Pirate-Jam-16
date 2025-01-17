@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwmhqd6h6c6av"]
+
+[ext_resource type="PackedScene" uid="uid://21hgpiqmxqam" path="res://UI/Tutorial/tutorial_page.tscn" id="1_refkn"]
+
+[node name="Page2" instance=ExtResource("1_refkn")]

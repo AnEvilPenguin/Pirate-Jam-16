@@ -1,0 +1,53 @@
+[gd_scene load_steps=3 format=3 uid="uid://s55mw6vfwhrn"]
+
+[ext_resource type="Script" path="res://UI/Tutorial/root_tutorial.gd" id="1_78it4"]
+[ext_resource type="PackedScene" uid="uid://qpvqnoidd04d" path="res://UI/Tutorial/Pages/page_1.tscn" id="2_mk3ba"]
+
+[node name="RootTutorial" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_78it4")
+_firstScene = ExtResource("2_mk3ba")
+
+[node name="Content" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Buttons" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -41.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="PreviousButton" type="Button" parent="Buttons"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+disabled = true
+text = "<-- Previous"
+
+[node name="NextButton" type="Button" parent="Buttons"]
+layout_mode = 2
+size_flags_horizontal = 8
+disabled = true
+text = "Next -->"
+
+[connection signal="pressed" from="Buttons/PreviousButton" to="." method="_on_previous_button_pressed"]
+[connection signal="pressed" from="Buttons/NextButton" to="." method="_on_next_button_pressed"]
