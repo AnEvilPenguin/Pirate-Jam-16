@@ -54,6 +54,7 @@ func NewGame():
 	if (SkipTutorial):
 		 # TODO this
 		UnloadScene("res://UI/Tutorial/root_tutorial.tscn")
+		LoadWorldScene("res://Scenes/solar_system.tscn")
 		return
 	
 	LoadControlScene("res://UI/Tutorial/root_tutorial.tscn")
