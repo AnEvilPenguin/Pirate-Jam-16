@@ -1,8 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://c1y1iey62avec"]
+[gd_scene load_steps=3 format=3 uid="uid://c1y1iey62avec"]
 
 [ext_resource type="Texture2D" uid="uid://c4a5wppo830iu" path="res://Assets/icon.svg" id="1_7fdxf"]
+[ext_resource type="PackedScene" uid="uid://d0ojrocirr1jq" path="res://Scenes/pluto.tscn" id="2_08sjl"]
 
 [node name="SolarSystem" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_7fdxf")
+
+[node name="Pluto" parent="." instance=ExtResource("2_08sjl")]
+position = Vector2(478, 239)
+motion_mode = 1
