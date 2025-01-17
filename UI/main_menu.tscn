@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://borio62vucodw"]
+[gd_scene load_steps=3 format=3 uid="uid://borio62vucodw"]
 
 [ext_resource type="Script" path="res://UI/main_menu.gd" id="1_io5cw"]
+[ext_resource type="Texture2D" uid="uid://kb28timsfvik" path="res://Assets/F-You Earth2.png" id="2_ujovg"]
 
 [node name="MainMenu" type="CenterContainer"]
 anchors_preset = 15
@@ -10,35 +11,50 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_io5cw")
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(800, 600)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 50
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+texture = ExtResource("2_ujovg")
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
 text = "Main Menu"
 horizontal_alignment = 1
 
-[node name="ContinueButton" type="Button" parent="PanelContainer/VBoxContainer"]
+[node name="ContinueButton" type="Button" parent="VBoxContainer/PanelContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 disabled = true
 text = "Continue"
 
-[node name="NewGameButton" type="Button" parent="PanelContainer/VBoxContainer"]
+[node name="NewGameButton" type="Button" parent="VBoxContainer/PanelContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "New Game
 "
 
-[node name="SettingsButton" type="Button" parent="PanelContainer/VBoxContainer"]
+[node name="SettingsButton" type="Button" parent="VBoxContainer/PanelContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Settings"
 
-[connection signal="pressed" from="PanelContainer/VBoxContainer/ContinueButton" to="." method="_on_continue_pressed"]
-[connection signal="pressed" from="PanelContainer/VBoxContainer/NewGameButton" to="." method="_on_new_pressed"]
-[connection signal="pressed" from="PanelContainer/VBoxContainer/SettingsButton" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="VBoxContainer/PanelContainer/VBoxContainer/ContinueButton" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="VBoxContainer/PanelContainer/VBoxContainer/NewGameButton" to="." method="_on_new_pressed"]
+[connection signal="pressed" from="VBoxContainer/PanelContainer/VBoxContainer/SettingsButton" to="." method="_on_settings_pressed"]
