@@ -5,7 +5,14 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_u8ewb"]
 shader = ExtResource("2_m83yt")
-shader_parameter/bg_color = null
+shader_parameter/bg_color = Color(0, 0, 0, 1)
+shader_parameter/offset = null
+shader_parameter/bigStarSlow = 2.0
+shader_parameter/mediumStarSlow = 6.0
+shader_parameter/smallStarSlow = 8.0
+shader_parameter/smallStarAmount = 0.001
+shader_parameter/mediumStarAmount = 0.004
+shader_parameter/bigStarAmount = 0.001
 
 [node name="GameController" type="Node"]
 script = ExtResource("1_wa5lg")
