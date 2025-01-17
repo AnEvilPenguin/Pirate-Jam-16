@@ -21,6 +21,7 @@ script = ExtResource("1_wa5lg")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 process_mode = 3
+layer = -1
 
 [node name="GUI" type="Control" parent="CanvasLayer"]
 unique_name_in_owner = true
