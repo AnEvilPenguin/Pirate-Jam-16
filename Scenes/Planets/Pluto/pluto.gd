@@ -12,6 +12,9 @@ var acceleration: float = 2.0
 @export
 var orbitalDistance: float
 
+@export
+var targetObject: Node2D
+
 @onready
 var _orbitLine: OrbitLine = $OrbitLine
 
@@ -25,6 +28,10 @@ func _ready():
 
 func _process(delta):
 	_set_player_movement(delta)
+	
+	if (targetObject):
+		var dirToTarget = global_position - targetObject.global_position;
+		$Sprite2D/Eye1.direction = dirToTarget
 
 func _physics_process(_delta):
 	var dirToCenter = global_position - _centerPosition

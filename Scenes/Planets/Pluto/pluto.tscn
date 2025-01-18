@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://d0ojrocirr1jq"]
+[gd_scene load_steps=7 format=3 uid="uid://d0ojrocirr1jq"]
 
 [ext_resource type="Script" path="res://Scenes/Planets/Pluto/pluto.gd" id="1_4sphj"]
 [ext_resource type="Texture2D" uid="uid://dmb7nvxpy08jj" path="res://Assets/Planets/planet05.png" id="1_6x4n2"]
 [ext_resource type="PackedScene" uid="uid://dmb1oatxee3p6" path="res://Scenes/Components/orbit_line.tscn" id="3_6nla0"]
+[ext_resource type="PackedScene" uid="uid://cojbe203vb2nu" path="res://Scenes/Components/eye.tscn" id="3_p3eo1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_78acu"]
 radius = 47.0
@@ -20,6 +21,15 @@ scale = Vector2(0.1, 0.1)
 texture = ExtResource("1_6x4n2")
 
 [node name="Camera2D" type="Camera2D" parent="Sprite2D"]
+process_callback = 0
+
+[node name="Eye1" parent="Sprite2D" instance=ExtResource("3_p3eo1")]
+position = Vector2(-200, -250)
+scale = Vector2(2, 2)
+
+[node name="Eye2" parent="Sprite2D" instance=ExtResource("3_p3eo1")]
+position = Vector2(200, -250)
+scale = Vector2(2, 2)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_78acu")
