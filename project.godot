@@ -41,5 +41,3 @@ theme/custom="res://main_theme.tres"
 [rendering]
 
 anti_aliasing/screen_space_roughness_limiter/enabled=false
-2d/snap/snap_2d_transforms_to_pixel=true
-2d/snap/snap_2d_vertices_to_pixel=true
