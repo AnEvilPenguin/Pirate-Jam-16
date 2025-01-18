@@ -16,7 +16,7 @@ var orbitalDistance: float
 var targetObject: Node2D
 
 @onready
-var _orbitLine: OrbitLine = $OrbitLine
+var _orbitLine: OrbitLine = %OrbitLine
 
 var _centerPosition = Vector2.ZERO
 
@@ -28,11 +28,12 @@ func _ready():
 
 func _process(delta):
 	_set_player_movement(delta)
+	_process_mouse_rotation()
 	
 	if (targetObject):
 		var dirToTarget = global_position - targetObject.global_position;
-		$Sprite2D/Eye1.direction = dirToTarget
-		$Sprite2D/Eye2.direction = dirToTarget
+		%Eye1.direction = dirToTarget
+		%Eye2.direction = dirToTarget
 
 func _physics_process(_delta):
 	var dirToCenter = global_position - _centerPosition
@@ -42,8 +43,8 @@ func _physics_process(_delta):
 	var offset = orbitalDistance - dirToCenter.length()
 	velocity += dirToCenter.limit_length() * offset
 	
-	$Label.text = "center: " + str(dirToCenter.length())
-	$Label2.text = "speed: " + str(speed)
+	%Label.text = "center: " + str(dirToCenter.length())
+	%Label2.text = "speed: " + str(speed)
 	
 	move_and_slide()
 
@@ -57,3 +58,9 @@ func _set_player_movement(delta):
 	
 	var speedChange = Input.get_axis("ui_left", "ui_right")
 	speed += (speedChange * acceleration) * delta
+
+func _process_mouse_rotation():
+	var mouseCoords = get_global_mouse_position()
+	var mouseDirection = mouseCoords - global_position;
+	
+	global_rotation = mouseDirection.angle()
