@@ -32,6 +32,7 @@ func _process(delta):
 	if (targetObject):
 		var dirToTarget = global_position - targetObject.global_position;
 		$Sprite2D/Eye1.direction = dirToTarget
+		$Sprite2D/Eye2.direction = dirToTarget
 
 func _physics_process(_delta):
 	var dirToCenter = global_position - _centerPosition
@@ -47,6 +48,9 @@ func _physics_process(_delta):
 	move_and_slide()
 
 func _set_player_movement(delta):
+	# TODO Deal with rotation
+	# TODO rotate towards mouse
+	# TODO set variables based on rotation
 	var change = Input.get_axis("ui_down", "ui_up")
 	orbitalDistance += (change * orbitalAcceleration) * delta
 	_orbitLine.distance = orbitalDistance

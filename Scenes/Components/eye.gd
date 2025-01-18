@@ -3,10 +3,10 @@ extends Node2D
 class_name Eye
 
 @export
-var pupilSize: float = 10.0;
+var pupilSize: float = 15.0;
 
 @onready
-var _sprite: Sprite2D = $Sprite2D
+var _normal: Sprite2D = $NormalEye
 
 var direction: Vector2 = Vector2(64,0)
 
@@ -17,12 +17,12 @@ var _material: ShaderMaterial
 
 
 func _ready():
-	var rect = _sprite.get_rect()
+	var rect = _normal.get_rect()
 	_resolution = rect.size
 	_center = _resolution / 2
 	
 	_material = CustomShaders.GetEyeShader()
-	_sprite.material = _material
+	_normal.material = _material
 	
 	_material.set_shader_parameter("resolution", _resolution)
 
@@ -30,11 +30,10 @@ func _ready():
 func _process(delta):
 	var maxLength = _center.x - pupilSize
 	
-	# TODO deal with global rotation?
-	var lookDirection = _center - direction.limit_length(maxLength)
-	var normalizedSize = pupilSize / _resolution.x
-	
+	var lookDirection = _center - direction.rotated(-global_rotation).limit_length(maxLength)
 	_material.set_shader_parameter("pupil_position", lookDirection)
+	
+	var normalizedSize = pupilSize / _resolution.x
 	_material.set_shader_parameter("pupil_size", normalizedSize)
 
 

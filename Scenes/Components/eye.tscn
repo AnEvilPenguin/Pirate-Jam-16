@@ -6,13 +6,13 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3ct6e"]
 shader = ExtResource("1_pvdb8")
-shader_parameter/resolution = Vector2(512, 512)
+shader_parameter/resolution = Vector2(128, 128)
 shader_parameter/pupil_position = Vector2(32, 64)
 shader_parameter/pupil_size = 0.15
 
 [node name="Eye" type="Node2D"]
 script = ExtResource("1_kea37")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="NormalEye" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_3ct6e")
 texture = ExtResource("1_ayj0i")
