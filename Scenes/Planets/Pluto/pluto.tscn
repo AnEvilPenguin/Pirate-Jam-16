@@ -32,4 +32,12 @@ offset_bottom = 119.0
 theme = SubResource("Theme_lqlt5")
 text = "center: "
 
+[node name="Label2" type="Label" parent="."]
+offset_left = -24.0
+offset_top = 110.0
+offset_right = 168.0
+offset_bottom = 157.0
+theme = SubResource("Theme_lqlt5")
+text = "speed: "
+
 [node name="OrbitLine" parent="." instance=ExtResource("3_6nla0")]

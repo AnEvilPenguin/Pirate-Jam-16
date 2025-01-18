@@ -7,6 +7,9 @@ var speed = 250.0
 var orbitalAcceleration: float = 2.0
 
 @export
+var acceleration: float = 2.0
+
+@export
 var orbitalDistance: float
 
 @onready
@@ -21,7 +24,6 @@ func _ready():
 	_orbitLine.distance = orbitalDistance
 
 func _process(delta):
-	var dirToCenter = global_position - _centerPosition
 	_set_player_movement(delta)
 
 func _physics_process(_delta):
@@ -33,6 +35,7 @@ func _physics_process(_delta):
 	velocity += dirToCenter.limit_length() * offset
 	
 	$Label.text = "center: " + str(dirToCenter.length())
+	$Label2.text = "speed: " + str(speed)
 	
 	move_and_slide()
 
@@ -41,3 +44,5 @@ func _set_player_movement(delta):
 	orbitalDistance += (change * orbitalAcceleration) * delta
 	_orbitLine.distance = orbitalDistance
 	
+	var speedChange = Input.get_axis("ui_left", "ui_right")
+	speed += (speedChange * acceleration) * delta
