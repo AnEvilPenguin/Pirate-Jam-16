@@ -12,6 +12,9 @@ var texture: Texture2D
 @export
 var orbitalDistance: float
 
+@onready
+var _orbitLine: OrbitLine = $OrbitLine
+
 var _centerPosition: Vector2
 
 func _ready():
@@ -19,6 +22,8 @@ func _ready():
 	
 	if (orbitalDistance < 1.0):
 		orbitalDistance = global_position.x
+	
+	_orbitLine.distance = orbitalDistance
 	
 	if (center == null):
 		_centerPosition = Vector2.ZERO

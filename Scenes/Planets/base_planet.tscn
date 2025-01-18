@@ -1,11 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://cd8d6l4opsm2d"]
+[gd_scene load_steps=4 format=3 uid="uid://cd8d6l4opsm2d"]
 
 [ext_resource type="Script" path="res://Scenes/Planets/base_planet.gd" id="1_mmngi"]
+[ext_resource type="PackedScene" uid="uid://dmb1oatxee3p6" path="res://Scenes/Components/orbit_line.tscn" id="2_h8juc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7avgr"]
 radius = 50.0
 
 [node name="BasePlanet" type="CharacterBody2D"]
+z_index = 1
+z_as_relative = false
 motion_mode = 1
 script = ExtResource("1_mmngi")
 
@@ -14,3 +17,5 @@ scale = Vector2(0.1, 0.1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_7avgr")
+
+[node name="OrbitLine" parent="." instance=ExtResource("2_h8juc")]

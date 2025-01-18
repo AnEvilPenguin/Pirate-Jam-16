@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://d0ojrocirr1jq"]
+[gd_scene load_steps=6 format=3 uid="uid://d0ojrocirr1jq"]
 
 [ext_resource type="Script" path="res://Scenes/Planets/Pluto/pluto.gd" id="1_4sphj"]
 [ext_resource type="Texture2D" uid="uid://dmb7nvxpy08jj" path="res://Assets/Planets/planet05.png" id="1_6x4n2"]
+[ext_resource type="PackedScene" uid="uid://dmb1oatxee3p6" path="res://Scenes/Components/orbit_line.tscn" id="3_6nla0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_78acu"]
 radius = 47.0
@@ -9,6 +10,8 @@ radius = 47.0
 [sub_resource type="Theme" id="Theme_lqlt5"]
 
 [node name="Pluto" type="CharacterBody2D"]
+z_index = 1
+z_as_relative = false
 slide_on_ceiling = false
 script = ExtResource("1_4sphj")
 
@@ -28,3 +31,5 @@ offset_right = 16.0
 offset_bottom = 119.0
 theme = SubResource("Theme_lqlt5")
 text = "center: "
+
+[node name="OrbitLine" parent="." instance=ExtResource("3_6nla0")]

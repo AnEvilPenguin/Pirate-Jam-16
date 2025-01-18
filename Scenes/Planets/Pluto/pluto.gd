@@ -9,11 +9,16 @@ var orbitalAcceleration: float = 2.0
 @export
 var orbitalDistance: float
 
+@onready
+var _orbitLine: OrbitLine = $OrbitLine
+
 var _centerPosition = Vector2.ZERO
 
 func _ready():
 	if (orbitalDistance < 1.0):
 		orbitalDistance = global_position.x
+	
+	_orbitLine.distance = orbitalDistance
 
 func _process(delta):
 	var dirToCenter = global_position - _centerPosition
@@ -34,3 +39,5 @@ func _physics_process(_delta):
 func _set_player_movement(delta):
 	var change = Input.get_axis("ui_down", "ui_up")
 	orbitalDistance += (change * orbitalAcceleration) * delta
+	_orbitLine.distance = orbitalDistance
+	
