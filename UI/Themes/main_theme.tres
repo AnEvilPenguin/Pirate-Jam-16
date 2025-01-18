@@ -1,10 +1,10 @@
 [gd_resource type="Theme" load_steps=8 format=3 uid="uid://00o322muxe1l"]
 
 [ext_resource type="FontFile" uid="uid://42suvld3pk81" path="res://Assets/Fonts/Vipnagorgialla Bd.otf" id="1_4yihb"]
-[ext_resource type="StyleBox" uid="uid://dybqi3hcx6yet" path="res://disabled_button_style_box_flat.tres" id="2_rvn56"]
-[ext_resource type="StyleBox" uid="uid://chbgtca3buu0" path="res://default_button_style_box_flat.tres" id="3_12me7"]
-[ext_resource type="StyleBox" uid="uid://b10knlne0ro50" path="res://hover_button_style_box_flat.tres" id="3_wvwpa"]
-[ext_resource type="StyleBox" uid="uid://bty7ugjcta1o8" path="res://panel_container_style_box_flat.tres" id="4_6p3yi"]
+[ext_resource type="StyleBox" uid="uid://dybqi3hcx6yet" path="res://UI/Themes/stylebox/disabled_button_style_box_flat.tres" id="2_rvn56"]
+[ext_resource type="StyleBox" uid="uid://chbgtca3buu0" path="res://UI/Themes/stylebox/default_button_style_box_flat.tres" id="3_12me7"]
+[ext_resource type="StyleBox" uid="uid://b10knlne0ro50" path="res://UI/Themes/stylebox/hover_button_style_box_flat.tres" id="3_wvwpa"]
+[ext_resource type="StyleBox" uid="uid://bty7ugjcta1o8" path="res://UI/Themes/stylebox/panel_container_style_box_flat.tres" id="4_6p3yi"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vbwuq"]
 

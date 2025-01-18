@@ -4,11 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://dmb7nvxpy08jj" path="res://Assets/Planets/planet05.png" id="1_6x4n2"]
 [ext_resource type="PackedScene" uid="uid://dmb1oatxee3p6" path="res://Scenes/Components/orbit_line.tscn" id="3_6nla0"]
 [ext_resource type="PackedScene" uid="uid://cojbe203vb2nu" path="res://Scenes/Components/eye.tscn" id="3_p3eo1"]
+[ext_resource type="Theme" uid="uid://8bm6h4q8wu0e" path="res://UI/Themes/default_theme.tres" id="4_f81le"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_78acu"]
 radius = 47.0
-
-[sub_resource type="Theme" id="Theme_lqlt5"]
 
 [node name="Pluto" type="CharacterBody2D"]
 z_index = 1
@@ -39,7 +38,7 @@ offset_left = -24.0
 offset_top = 72.0
 offset_right = 16.0
 offset_bottom = 119.0
-theme = SubResource("Theme_lqlt5")
+theme = ExtResource("4_f81le")
 text = "center: "
 
 [node name="Label2" type="Label" parent="."]
@@ -47,7 +46,7 @@ offset_left = -24.0
 offset_top = 110.0
 offset_right = 168.0
 offset_bottom = 157.0
-theme = SubResource("Theme_lqlt5")
+theme = ExtResource("4_f81le")
 text = "speed: "
 
 [node name="OrbitLine" parent="." instance=ExtResource("3_6nla0")]

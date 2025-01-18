@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://UI/main_menu.gd" id="1_io5cw"]
 [ext_resource type="Texture2D" uid="uid://kb28timsfvik" path="res://Assets/F-You Earth2.png" id="2_ujovg"]
-[ext_resource type="Theme" uid="uid://00o322muxe1l" path="res://main_theme.tres" id="3_reurt"]
+[ext_resource type="Theme" uid="uid://00o322muxe1l" path="res://UI/Themes/main_theme.tres" id="3_reurt"]
 
 [node name="MainMenu" type="CenterContainer"]
 anchors_preset = 15
