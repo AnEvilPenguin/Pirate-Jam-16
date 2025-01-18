@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://borio62vucodw"]
+[gd_scene load_steps=4 format=3 uid="uid://borio62vucodw"]
 
 [ext_resource type="Script" path="res://UI/main_menu.gd" id="1_io5cw"]
 [ext_resource type="Texture2D" uid="uid://kb28timsfvik" path="res://Assets/F-You Earth2.png" id="2_ujovg"]
+[ext_resource type="Theme" uid="uid://00o322muxe1l" path="res://main_theme.tres" id="3_reurt"]
 
 [node name="MainMenu" type="CenterContainer"]
 anchors_preset = 15
@@ -25,35 +26,36 @@ layout_mode = 2
 texture = ExtResource("2_ujovg")
 
 [node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
-custom_minimum_size = Vector2(300, 0)
+custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer"]
 layout_mode = 2
+theme = ExtResource("3_reurt")
 
 [node name="Label" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
-text = "Main Menu"
+text = "MAIN MENU"
 horizontal_alignment = 1
 
 [node name="ContinueButton" type="Button" parent="VBoxContainer/PanelContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 disabled = true
-text = "Continue"
+text = "CONTINUE"
 
 [node name="NewGameButton" type="Button" parent="VBoxContainer/PanelContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "New Game
+text = "NEW GAME
 "
 
 [node name="SettingsButton" type="Button" parent="VBoxContainer/PanelContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Settings"
+text = "SETTINGS"
 
 [connection signal="pressed" from="VBoxContainer/PanelContainer/VBoxContainer/ContinueButton" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="VBoxContainer/PanelContainer/VBoxContainer/NewGameButton" to="." method="_on_new_pressed"]
