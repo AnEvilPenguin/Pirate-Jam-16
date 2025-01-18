@@ -38,12 +38,14 @@ theme_override_constants/margin_bottom = 10
 
 [node name="PreviousButton" type="Button" parent="Buttons"]
 visible = false
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 disabled = true
 text = "<-- Previous"
 
 [node name="NextButton" type="Button" parent="Buttons"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 8
 disabled = true

@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=6 format=3 uid="uid://00o322muxe1l"]
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://00o322muxe1l"]
 
 [ext_resource type="FontFile" uid="uid://42suvld3pk81" path="res://Assets/Fonts/Vipnagorgialla Bd.otf" id="1_4yihb"]
 [ext_resource type="StyleBox" uid="uid://dybqi3hcx6yet" path="res://disabled_button_style_box_flat.tres" id="2_rvn56"]
@@ -6,12 +6,18 @@
 [ext_resource type="StyleBox" uid="uid://b10knlne0ro50" path="res://hover_button_style_box_flat.tres" id="3_wvwpa"]
 [ext_resource type="StyleBox" uid="uid://bty7ugjcta1o8" path="res://panel_container_style_box_flat.tres" id="4_6p3yi"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vbwuq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m38tv"]
+
 [resource]
 Button/font_sizes/font_size = 24
 Button/fonts/font = ExtResource("1_4yihb")
 Button/styles/disabled = ExtResource("2_rvn56")
 Button/styles/hover = ExtResource("3_wvwpa")
 Button/styles/normal = ExtResource("3_12me7")
+CheckButton/styles/disabled = SubResource("StyleBoxEmpty_vbwuq")
+CheckButton/styles/normal = SubResource("StyleBoxEmpty_m38tv")
 Label/font_sizes/font_size = 38
 Label/fonts/font = ExtResource("1_4yihb")
 PanelContainer/styles/panel = ExtResource("4_6p3yi")
