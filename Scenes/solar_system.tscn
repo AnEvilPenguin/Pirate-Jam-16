@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://c1y1iey62avec"]
+[gd_scene load_steps=6 format=3 uid="uid://c1y1iey62avec"]
 
 [ext_resource type="Texture2D" uid="uid://c4a5wppo830iu" path="res://Assets/icon.svg" id="1_7fdxf"]
-[ext_resource type="PackedScene" uid="uid://d0ojrocirr1jq" path="res://Scenes/pluto.tscn" id="2_08sjl"]
+[ext_resource type="PackedScene" uid="uid://d0ojrocirr1jq" path="res://Scenes/Planets/Pluto/pluto.tscn" id="2_08sjl"]
+[ext_resource type="PackedScene" uid="uid://cd8d6l4opsm2d" path="res://Scenes/Planets/base_planet.tscn" id="3_cuui0"]
+[ext_resource type="Texture2D" uid="uid://boa24xmx2ojv7" path="res://Assets/Planets/planet06.png" id="4_gj5ru"]
+[ext_resource type="Texture2D" uid="uid://b2hby2abohghj" path="res://Assets/Planets/planet03.png" id="5_h718v"]
 
 [node name="SolarSystem" type="Node2D"]
 
@@ -9,5 +12,14 @@
 texture = ExtResource("1_7fdxf")
 
 [node name="Pluto" parent="." instance=ExtResource("2_08sjl")]
-position = Vector2(478, 239)
+position = Vector2(750, 0)
 motion_mode = 1
+
+[node name="Mercury" parent="." instance=ExtResource("3_cuui0")]
+position = Vector2(400, 0)
+speed = 400.0
+texture = ExtResource("4_gj5ru")
+
+[node name="Earth" parent="." instance=ExtResource("3_cuui0")]
+position = Vector2(550, 0)
+texture = ExtResource("5_h718v")
