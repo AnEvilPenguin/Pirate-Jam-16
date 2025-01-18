@@ -1,11 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://d0ojrocirr1jq"]
+[gd_scene load_steps=4 format=3 uid="uid://d0ojrocirr1jq"]
 
+[ext_resource type="Script" path="res://Scenes/pluto.gd" id="1_4sphj"]
 [ext_resource type="Texture2D" uid="uid://dmb7nvxpy08jj" path="res://Assets/Planets/planet05.png" id="1_6x4n2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_78acu"]
 radius = 47.0
 
 [node name="Pluto" type="CharacterBody2D"]
+slide_on_ceiling = false
+script = ExtResource("1_4sphj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.1, 0.1)
