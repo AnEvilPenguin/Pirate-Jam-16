@@ -16,6 +16,9 @@ var targetObject: Node2D
 @onready
 var _orbitLine: OrbitLine = %OrbitLine
 
+@onready
+var _massEjection: GPUParticles2D = %MassEmitter
+
 var _centerPosition = Vector2.ZERO
 
 func _ready():
@@ -50,7 +53,13 @@ func _physics_process(_delta):
 
 func _set_player_movement(delta):
 	if (!Input.is_action_pressed("add_momentum")):
+		_massEjection.emitting = false
 		return
+		
+	_massEjection.emitting = true
+	var particleMaterial: ParticleProcessMaterial = _massEjection.process_material;
+	
+	particleMaterial.velocity
 	
 	var dirToCenter = (global_position - _centerPosition).limit_length()
 	var orbitalDir = dirToCenter.orthogonal().limit_length()
