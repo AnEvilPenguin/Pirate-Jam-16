@@ -14,6 +14,14 @@ var pointCount: float = 360
 @export
 var centerPoint: Vector2 = Vector2.ZERO
 
+@export
+var minWidth = 2.0
+
+@export
+var maxWidth = 20.0
+@export
+var widthFactor= 1.0
+
 var _lastDistance: float
 
 
@@ -23,6 +31,13 @@ var _lastDistance: float
 # TODO put distance on line
 # TODO get pluto position
 # TODO put name at same relative angle to pluto
+
+func _unhandled_input(event):
+	if (Input.is_action_just_pressed("zoom_in")):
+		_set_width(-widthFactor)
+	
+	if (Input.is_action_just_pressed("zoom_out")):
+		_set_width(+widthFactor)
 
 func _process(_delta):
 	if (_lastDistance != distance):
@@ -49,3 +64,9 @@ func _draw_circle_at_point(center, radius, points):
 		pass
 	
 	line.add_point(first)
+
+func _set_width(value: float):
+	var width = clamp(line.width + value, minWidth, maxWidth)
+	
+	var tween = get_tree().create_tween()
+	tween.tween_property(line, "width", width, 0.1).set_ease(Tween.EASE_IN_OUT)

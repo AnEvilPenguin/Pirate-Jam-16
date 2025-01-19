@@ -54,8 +54,13 @@ func _physics_process(_delta):
 func _set_player_movement(delta):
 	if (!Input.is_action_pressed("add_momentum")):
 		_massEjection.emitting = false
+		%Eye1.eyeStyle = 0
+		%Eye2.eyeStyle = 0
 		return
-		
+	
+	%Eye1.eyeStyle = 1
+	%Eye2.eyeStyle = 1
+	
 	_massEjection.emitting = true
 	var particleMaterial: ParticleProcessMaterial = _massEjection.process_material;
 	

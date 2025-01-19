@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cojbe203vb2nu"]
+[gd_scene load_steps=6 format=3 uid="uid://cojbe203vb2nu"]
 
 [ext_resource type="Texture2D" uid="uid://ch6wvuvmmexfj" path="res://Assets/eye_base.png" id="1_ayj0i"]
 [ext_resource type="Script" path="res://Scenes/Components/eye.gd" id="1_kea37"]
 [ext_resource type="Shader" path="res://Util/Shaders/eye.gdshader" id="1_pvdb8"]
+[ext_resource type="Texture2D" uid="uid://3jpqnjay2bst" path="res://Assets/eye_effort.png" id="4_2i6dl"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3ct6e"]
 shader = ExtResource("1_pvdb8")
@@ -14,5 +15,10 @@ shader_parameter/pupil_size = 0.15
 script = ExtResource("1_kea37")
 
 [node name="NormalEye" type="Sprite2D" parent="."]
+visible = false
 material = SubResource("ShaderMaterial_3ct6e")
 texture = ExtResource("1_ayj0i")
+
+[node name="StrainedEye" type="Sprite2D" parent="."]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("4_2i6dl")

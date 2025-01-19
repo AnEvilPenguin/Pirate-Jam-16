@@ -49,6 +49,7 @@ scale = Vector2(2, 2)
 unique_name_in_owner = true
 position = Vector2(200, -250)
 scale = Vector2(2, 2)
+flipHorizontal = true
 
 [node name="Label" type="Label" parent="Node2D"]
 unique_name_in_owner = true
