@@ -3,9 +3,7 @@ extends CharacterBody2D
 @export
 var speed = 250.0
 
-@export
-var orbitalAcceleration: float = 2.0
-
+# Consider changing acceleration with some control? up/down w/s possibly mouse wheel?
 @export
 var acceleration: float = 2.0
 
@@ -27,8 +25,8 @@ func _ready():
 	_orbitLine.distance = orbitalDistance
 
 func _process(delta):
-	_set_player_movement(delta)
 	_process_mouse_rotation()
+	_set_player_movement(delta)
 	
 	if (targetObject):
 		var dirToTarget = global_position - targetObject.global_position;
@@ -36,6 +34,8 @@ func _process(delta):
 		%Eye2.direction = dirToTarget
 
 func _physics_process(_delta):
+	_orbitLine.distance = orbitalDistance
+	
 	var dirToCenter = global_position - _centerPosition
 	
 	velocity = dirToCenter.orthogonal().limit_length(speed);
@@ -49,15 +49,21 @@ func _physics_process(_delta):
 	move_and_slide()
 
 func _set_player_movement(delta):
-	# TODO Deal with rotation
-	# TODO rotate towards mouse
-	# TODO set variables based on rotation
-	var change = Input.get_axis("ui_down", "ui_up")
-	orbitalDistance += (change * orbitalAcceleration) * delta
-	_orbitLine.distance = orbitalDistance
+	if (!Input.is_action_pressed("add_momentum")):
+		return
 	
-	var speedChange = Input.get_axis("ui_left", "ui_right")
-	speed += (speedChange * acceleration) * delta
+	var dirToCenter = (global_position - _centerPosition).limit_length()
+	var orbitalDir = dirToCenter.orthogonal().limit_length()
+	
+	# rotate so forward in same direction as player
+	var forward = Vector2.RIGHT.rotated(rotation)
+	
+	var toCenter = dirToCenter.dot(forward)
+	orbitalDistance += (toCenter * acceleration) * delta
+	
+	var inOrbit = orbitalDir.dot(forward)
+	speed += (inOrbit * acceleration) * delta
+
 
 func _process_mouse_rotation():
 	var mouseCoords = get_global_mouse_position()

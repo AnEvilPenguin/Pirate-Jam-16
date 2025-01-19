@@ -13,7 +13,6 @@ texture = ExtResource("1_7fdxf")
 
 [node name="Pluto" parent="." node_paths=PackedStringArray("targetObject") instance=ExtResource("2_08sjl")]
 position = Vector2(750, 0)
-motion_mode = 1
 targetObject = NodePath("../Earth")
 
 [node name="Mercury" parent="." instance=ExtResource("3_cuui0")]
