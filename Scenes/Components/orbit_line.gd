@@ -32,7 +32,7 @@ var _lastDistance: float
 # TODO get pluto position
 # TODO put name at same relative angle to pluto
 
-func _unhandled_input(event):
+func _unhandled_input(_event):
 	if (Input.is_action_just_pressed("zoom_in")):
 		_set_width(-widthFactor)
 	
