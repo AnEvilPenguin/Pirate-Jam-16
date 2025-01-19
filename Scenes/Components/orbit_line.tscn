@@ -1,11 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://dmb1oatxee3p6"]
+[gd_scene load_steps=3 format=3 uid="uid://dmb1oatxee3p6"]
 
 [ext_resource type="Script" path="res://Scenes/Components/orbit_line.gd" id="1_82iq0"]
+[ext_resource type="Texture2D" uid="uid://dyan3huke828n" path="res://Assets/dashed_line.png" id="2_kw5pe"]
 
 [node name="OrbitLine" type="Node"]
 script = ExtResource("1_82iq0")
 
 [node name="Line2D" type="Line2D" parent="."]
 z_as_relative = false
-width = 1.0
+texture_repeat = 2
+points = PackedVector2Array(0, 0, 200, 0)
+width = 3.0
 default_color = Color(1, 0, 0, 1)
+texture = ExtResource("2_kw5pe")
+texture_mode = 1
+sharp_limit = 20.0
+round_precision = 10
+antialiased = true

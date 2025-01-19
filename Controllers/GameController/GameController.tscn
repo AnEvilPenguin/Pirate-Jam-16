@@ -36,6 +36,7 @@ size_flags_vertical = 3
 
 [node name="BackgroundColorRect" type="ColorRect" parent="CanvasLayer"]
 process_mode = 3
+visible = false
 z_index = -50
 z_as_relative = false
 material = SubResource("ShaderMaterial_u8ewb")
