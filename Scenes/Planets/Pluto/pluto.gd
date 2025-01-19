@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+class_name Pluto
+
 @export
 var speed = 250.0
 
@@ -41,6 +43,8 @@ func _ready():
 	_gameController.playerInfoPanel.SetDistance(orbitalDistance)
 	_gameController.playerInfoPanel.SetSpeed(speed)
 	_gameController.playerInfoPanel.SetMass(mass)
+	
+	_gameController.player = self
 
 func _process(delta):
 	_process_mouse_rotation()

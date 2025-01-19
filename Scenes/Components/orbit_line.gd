@@ -22,6 +22,9 @@ var maxWidth = 60.0
 @export
 var widthFactor= 1.5
 
+@export
+var color: Color = Color.RED
+
 var _lastDistance: float
 
 
@@ -31,6 +34,9 @@ var _lastDistance: float
 # TODO put distance on line
 # TODO get pluto position
 # TODO put name at same relative angle to pluto
+
+func _ready():
+	$Line2D.default_color = color
 
 func _unhandled_input(_event):
 	if (Input.is_action_just_pressed("zoom_in")):

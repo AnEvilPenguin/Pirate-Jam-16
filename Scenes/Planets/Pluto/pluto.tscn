@@ -59,6 +59,7 @@ flipHorizontal = true
 
 [node name="OrbitLine" parent="Node2D" instance=ExtResource("3_6nla0")]
 unique_name_in_owner = true
+color = Color(0.0333333, 0, 1, 1)
 
 [node name="MassEmitter" type="GPUParticles2D" parent="."]
 unique_name_in_owner = true

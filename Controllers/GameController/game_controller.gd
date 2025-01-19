@@ -11,7 +11,10 @@ var _loadedScenes: Dictionary
 
 var _mainMenu: MainMenu
 var _gameOver
+
 var playerInfoPanel: PlayerInformationPanel
+
+var player: Pluto
 
 var SkipTutorial: bool
 
