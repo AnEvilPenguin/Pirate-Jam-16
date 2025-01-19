@@ -59,7 +59,10 @@ func _set_player_movement(delta):
 	_massEjection.emitting = true
 	var particleMaterial: ParticleProcessMaterial = _massEjection.process_material;
 	
-	particleMaterial.velocity
+	# Update the particle velocity based on current speed
+	# The alternative is to use local coordinates, but this looks rubbish
+	particleMaterial.set_param_min(ParticleProcessMaterial.Parameter.PARAM_INITIAL_LINEAR_VELOCITY, -speed)
+	particleMaterial.set_param_max(ParticleProcessMaterial.Parameter.PARAM_INITIAL_LINEAR_VELOCITY, -(speed * 0.6))
 	
 	var dirToCenter = (global_position - _centerPosition).limit_length()
 	var orbitalDir = dirToCenter.orthogonal().limit_length()

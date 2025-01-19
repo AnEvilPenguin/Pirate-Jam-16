@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://d0ojrocirr1jq"]
+[gd_scene load_steps=9 format=3 uid="uid://d0ojrocirr1jq"]
 
 [ext_resource type="Script" path="res://Scenes/Planets/Pluto/pluto.gd" id="1_4sphj"]
 [ext_resource type="Texture2D" uid="uid://dmb7nvxpy08jj" path="res://Assets/Planets/planet05.png" id="1_6x4n2"]
 [ext_resource type="PackedScene" uid="uid://dmb1oatxee3p6" path="res://Scenes/Components/orbit_line.tscn" id="3_6nla0"]
 [ext_resource type="PackedScene" uid="uid://cojbe203vb2nu" path="res://Scenes/Components/eye.tscn" id="3_p3eo1"]
 [ext_resource type="Theme" uid="uid://8bm6h4q8wu0e" path="res://UI/Themes/default_theme.tres" id="4_f81le"]
+[ext_resource type="Texture2D" uid="uid://ek0okogamstm" path="res://Assets/dirt_01_super_small.png" id="6_m2hwp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_78acu"]
 radius = 47.0
@@ -14,7 +15,7 @@ particle_flag_disable_z = true
 direction = Vector3(0, -1, 0)
 spread = 15.0
 initial_velocity_min = -200.0
-initial_velocity_max = -200.0
+initial_velocity_max = -100.0
 gravity = Vector3(0, 0, 0)
 linear_accel_min = -2.23517e-06
 linear_accel_max = -2.23517e-06
@@ -72,7 +73,10 @@ unique_name_in_owner = true
 
 [node name="MassEmitter" type="GPUParticles2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(0, 51)
+z_index = -1
+position = Vector2(0, 48)
 scale = Vector2(2, 2)
-amount = 30
+emitting = false
+amount = 500
 process_material = SubResource("ParticleProcessMaterial_hn1k8")
+texture = ExtResource("6_m2hwp")
