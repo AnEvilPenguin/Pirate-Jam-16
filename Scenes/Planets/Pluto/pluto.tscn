@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://d0ojrocirr1jq"]
+[gd_scene load_steps=10 format=3 uid="uid://d0ojrocirr1jq"]
 
 [ext_resource type="Script" path="res://Scenes/Planets/Pluto/pluto.gd" id="1_4sphj"]
 [ext_resource type="Texture2D" uid="uid://dmb7nvxpy08jj" path="res://Assets/Planets/planet05.png" id="1_6x4n2"]
 [ext_resource type="PackedScene" uid="uid://dmb1oatxee3p6" path="res://Scenes/Components/orbit_line.tscn" id="3_6nla0"]
+[ext_resource type="Script" path="res://Scenes/Planets/Pluto/camera_zoom.gd" id="3_osriv"]
 [ext_resource type="PackedScene" uid="uid://cojbe203vb2nu" path="res://Scenes/Components/eye.tscn" id="3_p3eo1"]
 [ext_resource type="Theme" uid="uid://8bm6h4q8wu0e" path="res://UI/Themes/default_theme.tres" id="4_f81le"]
 [ext_resource type="Texture2D" uid="uid://ek0okogamstm" path="res://Assets/dirt_01_super_small.png" id="6_m2hwp"]
@@ -37,6 +38,7 @@ texture = ExtResource("1_6x4n2")
 
 [node name="Camera2D" type="Camera2D" parent="Node2D/Sprite2D"]
 process_callback = 0
+script = ExtResource("3_osriv")
 
 [node name="Face" type="Node2D" parent="Node2D/Sprite2D"]
 
@@ -71,6 +73,9 @@ text = "speed: "
 
 [node name="OrbitLine" parent="Node2D" instance=ExtResource("3_6nla0")]
 unique_name_in_owner = true
+distance = 0.0
+pointCount = 360.0
+centerPoint = Vector2(0, 0)
 
 [node name="MassEmitter" type="GPUParticles2D" parent="."]
 unique_name_in_owner = true
