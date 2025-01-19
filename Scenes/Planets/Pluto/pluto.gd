@@ -56,7 +56,7 @@ func _set_player_movement(delta):
 	var orbitalDir = dirToCenter.orthogonal().limit_length()
 	
 	# rotate so forward in same direction as player
-	var forward = Vector2.RIGHT.rotated(rotation)
+	var forward = Vector2.UP.rotated(rotation)
 	
 	var toCenter = dirToCenter.dot(forward)
 	orbitalDistance += (toCenter * acceleration) * delta
@@ -69,4 +69,4 @@ func _process_mouse_rotation():
 	var mouseCoords = get_global_mouse_position()
 	var mouseDirection = mouseCoords - global_position;
 	
-	global_rotation = mouseDirection.angle()
+	rotation = mouseDirection.angle() + (PI / 2.0)

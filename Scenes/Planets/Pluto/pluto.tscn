@@ -12,8 +12,6 @@ radius = 47.0
 [node name="Pluto" type="CharacterBody2D"]
 z_index = 1
 z_as_relative = false
-rotation = 1.5708
-motion_mode = 1
 slide_on_ceiling = false
 script = ExtResource("1_4sphj")
 
@@ -21,7 +19,6 @@ script = ExtResource("1_4sphj")
 shape = SubResource("CircleShape2D_78acu")
 
 [node name="Node2D" type="Node2D" parent="."]
-rotation = 1.5708
 
 [node name="Sprite2D" type="Sprite2D" parent="Node2D"]
 scale = Vector2(0.1, 0.1)
