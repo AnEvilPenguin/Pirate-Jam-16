@@ -128,8 +128,12 @@ func _on_area_2d_body_entered(body: Node2D):
 	
 	if (my_mass_x_speed > their_mass_x_speed):
 		# TODO some sort of animation or effect or whatever?
+		
+		_gameController.playerInfoPanel.AddScore(my_mass_x_speed - their_mass_x_speed)
+		
 		body.visible = false
 		body.queue_free()
 		mass += 2 * body.mass
 	else:
 		printerr("Game Over!")
+		_gameController.GameOver()

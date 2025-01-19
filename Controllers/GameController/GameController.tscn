@@ -17,14 +17,14 @@ shader_parameter/bigStarAmount = 0.001
 [node name="GameController" type="Node"]
 script = ExtResource("1_wa5lg")
 
-[node name="World2D" type="Node2D" parent="."]
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-process_mode = 3
-layer = -1
+layer = 10
 
 [node name="GUI" type="Control" parent="CanvasLayer"]
 unique_name_in_owner = true
+top_level = true
+z_index = 15
+z_as_relative = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -34,7 +34,13 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="BackgroundColorRect" type="ColorRect" parent="CanvasLayer"]
+[node name="World2D" type="Node2D" parent="."]
+
+[node name="BackgroundCanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 3
+layer = -1
+
+[node name="BackgroundColorRect" type="ColorRect" parent="BackgroundCanvasLayer"]
 process_mode = 3
 z_index = -50
 z_as_relative = false

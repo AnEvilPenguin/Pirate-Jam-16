@@ -10,6 +10,7 @@ var _world2d := $World2D
 var _loadedScenes: Dictionary
 
 var _mainMenu: MainMenu
+var _gameOver
 var playerInfoPanel: PlayerInformationPanel
 
 var SkipTutorial: bool
@@ -51,6 +52,7 @@ func _loadGenericScene(path: String, parent: Node):
 
 func NewGame():
 	_mainMenu.visible = false
+	get_tree().paused = false
 	
 	if (SkipTutorial):
 		 # TODO this
@@ -63,15 +65,29 @@ func NewGame():
 	
 	LoadControlScene("res://UI/Tutorial/root_tutorial.tscn")
 
+func ShowMainMenu():
+	PauseGame()
+	if(!_gameOver):
+		_gameOver.visible = false
+	_mainMenu.visible = true
+
 func PauseGame():
-	pass
+	get_tree().paused = true
 
 func ContinueGame():
-	pass
+	get_tree().paused = false
+	_mainMenu.visible = false
+
+func GameOver():
+	if (!_gameOver):
+		_gameOver = LoadControlScene("res://UI/Components/game_over.tscn")
+	
+	PauseGame()
+	_gameOver.visible = true
 
 func _on_window_size_changed():
 	_set_background_size()
-	
+
 
 func _set_background_size():
 	$CanvasLayer/BackgroundColorRect.size = get_viewport().size
