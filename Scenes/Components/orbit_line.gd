@@ -46,6 +46,8 @@ func _unhandled_input(_event):
 		_set_width(+widthFactor)
 
 func _process(_delta):
+	$Line2D.default_color = color
+	
 	if (_lastDistance != distance):
 		_draw_circle_at_point(centerPoint, distance, pointCount)
 		_lastDistance = distance
