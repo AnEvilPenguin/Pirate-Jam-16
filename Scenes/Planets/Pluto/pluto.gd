@@ -7,11 +7,11 @@ var speed = 250.0
 var mass: float = 13
 
 @export
-var massCost = 0.1
+var massCost = 0.5
 
 # Consider changing acceleration with some control? up/down w/s possibly mouse wheel?
 @export
-var acceleration: float = 30.0
+var acceleration: float = 50.0
 
 # FIXME use this as an input for a logarithmic scale
 @export
@@ -53,7 +53,7 @@ func _process(delta):
 
 func _physics_process(_delta):
 	if (mass <= 0):
-		printerr("Game Over!")
+		_gameController.GameOver()
 	
 	var dirToCenter = global_position - _centerPosition
 	

@@ -18,6 +18,8 @@ var SkipTutorial: bool
 func _ready():
 	Global.gameController = self
 	_mainMenu = LoadControlScene("res://UI/main_menu.tscn")
+	_gameOver = LoadControlScene("res://UI/Components/game_over.tscn")
+	_gameOver.visible = false
 
 
 func LoadWorldScene(path: String):
@@ -34,7 +36,12 @@ func UnloadScene(path: String):
 		return
 	
 	var node = _loadedScenes[path]
+	
+	node.visible = false
 	node.queue_free()
+
+	_loadedScenes.erase(path)
+
 
 func _loadGenericScene(path: String, parent: Node):
 	if (_loadedScenes.has(path)):
@@ -52,10 +59,12 @@ func _loadGenericScene(path: String, parent: Node):
 
 func NewGame():
 	_mainMenu.visible = false
+	_gameOver.visible = false
 	get_tree().paused = false
 	
+	ResetGame()
+	
 	if (SkipTutorial):
-		 # TODO this
 		UnloadScene("res://UI/Tutorial/root_tutorial.tscn")
 		
 		playerInfoPanel = LoadControlScene("res://UI/Components/user_interface.tscn")
@@ -65,10 +74,13 @@ func NewGame():
 	
 	LoadControlScene("res://UI/Tutorial/root_tutorial.tscn")
 
+func ResetGame():
+	UnloadScene("res://Scenes/solar_system.tscn")
+	get_tree().paused = false
+
 func ShowMainMenu():
 	PauseGame()
-	if(!_gameOver):
-		_gameOver.visible = false
+	_gameOver.visible = false
 	_mainMenu.visible = true
 
 func PauseGame():
@@ -79,9 +91,6 @@ func ContinueGame():
 	_mainMenu.visible = false
 
 func GameOver():
-	if (!_gameOver):
-		_gameOver = LoadControlScene("res://UI/Components/game_over.tscn")
-	
 	PauseGame()
 	_gameOver.visible = true
 

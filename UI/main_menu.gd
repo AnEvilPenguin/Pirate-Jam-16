@@ -3,11 +3,14 @@ class_name MainMenu
 
 var _settings: SettingsMenu
 
+@onready
+var continueButton = %ContinueButton
+
 func _on_continue_pressed():
 	Global.gameController.ContinueGame()
 
 func _on_new_pressed():
-	%ContinueButton.disabled = false
+	continueButton.disabled = false
 	Global.gameController.NewGame()
 
 func _on_settings_pressed():
