@@ -15,13 +15,16 @@ shader_parameter/mediumStarAmount = 0.004
 shader_parameter/bigStarAmount = 0.001
 
 [node name="GameController" type="Node"]
+process_mode = 3
 script = ExtResource("1_wa5lg")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 3
 layer = 10
 
 [node name="GUI" type="Control" parent="CanvasLayer"]
 unique_name_in_owner = true
+process_mode = 3
 top_level = true
 z_index = 15
 z_as_relative = false
@@ -33,8 +36,10 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 1
 
 [node name="World2D" type="Node2D" parent="."]
+process_mode = 1
 
 [node name="BackgroundCanvasLayer" type="CanvasLayer" parent="."]
 process_mode = 3

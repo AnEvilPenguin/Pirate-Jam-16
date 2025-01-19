@@ -1,6 +1,9 @@
-[gd_scene format=3 uid="uid://4apssh3uqe0o"]
+[gd_scene load_steps=2 format=3 uid="uid://4apssh3uqe0o"]
+
+[ext_resource type="Script" path="res://UI/Components/game_over.gd" id="1_65usq"]
 
 [node name="GameOver" type="CenterContainer"]
+process_mode = 3
 z_index = 5
 z_as_relative = false
 anchors_preset = 15
@@ -8,6 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_65usq")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 custom_minimum_size = Vector2(400, 0)
@@ -39,3 +43,6 @@ text = "New Game"
 layout_mode = 2
 size_flags_horizontal = 10
 text = "Main Menu"
+
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/NewGameButton" to="." method="_on_new_game_button_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
