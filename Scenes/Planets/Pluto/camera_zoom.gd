@@ -7,10 +7,10 @@ var zoomFactor = 0.1
 var zoomDuration = 0.2
 
 @export
-var minZoom = 0.1
+var minZoom = 0.02
 
 @export
-var maxZoom = 1.5
+var maxZoom = 1.0
 
 
 func _unhandled_input(_event):

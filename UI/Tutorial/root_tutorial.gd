@@ -57,5 +57,5 @@ func _on_next_button_pressed():
 		
 		return
 	
-	Global.GameContoller.SkipTutorial = true
-	Global.GameContoller.NewGame()
+	Global.gameController.SkipTutorial = true
+	Global.gameController.NewGame()

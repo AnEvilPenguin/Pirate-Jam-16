@@ -18,9 +18,9 @@ var centerPoint: Vector2 = Vector2.ZERO
 var minWidth = 2.0
 
 @export
-var maxWidth = 20.0
+var maxWidth = 60.0
 @export
-var widthFactor= 1.0
+var widthFactor= 1.5
 
 var _lastDistance: float
 
@@ -66,6 +66,7 @@ func _draw_circle_at_point(center, radius, points):
 	line.add_point(first)
 
 func _set_width(value: float):
+	# FIXME link this more closely to camera zoom. This sucks at the moment
 	var width = clamp(line.width + value, minWidth, maxWidth)
 	
 	var tween = get_tree().create_tween()

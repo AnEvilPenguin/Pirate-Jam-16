@@ -5,11 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://dmb1oatxee3p6" path="res://Scenes/Components/orbit_line.tscn" id="3_6nla0"]
 [ext_resource type="Script" path="res://Scenes/Planets/Pluto/camera_zoom.gd" id="3_osriv"]
 [ext_resource type="PackedScene" uid="uid://cojbe203vb2nu" path="res://Scenes/Components/eye.tscn" id="3_p3eo1"]
-[ext_resource type="Theme" uid="uid://8bm6h4q8wu0e" path="res://UI/Themes/default_theme.tres" id="4_f81le"]
 [ext_resource type="Texture2D" uid="uid://ek0okogamstm" path="res://Assets/dirt_01_super_small.png" id="6_m2hwp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_78acu"]
-radius = 47.0
+radius = 49.0
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hn1k8"]
 particle_flag_disable_z = true
@@ -20,6 +19,9 @@ initial_velocity_max = -100.0
 gravity = Vector3(0, 0, 0)
 linear_accel_min = -2.23517e-06
 linear_accel_max = -2.23517e-06
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1pa17"]
+radius = 52.0
 
 [node name="Pluto" type="CharacterBody2D"]
 z_index = 1
@@ -40,6 +42,7 @@ texture = ExtResource("1_6x4n2")
 [node name="Camera2D" type="Camera2D" parent="Node2D/Sprite2D"]
 process_callback = 0
 script = ExtResource("3_osriv")
+minZoom = 0.1
 
 [node name="Face" type="Node2D" parent="Node2D/Sprite2D"]
 
@@ -54,24 +57,6 @@ position = Vector2(200, -250)
 scale = Vector2(2, 2)
 flipHorizontal = true
 
-[node name="Label" type="Label" parent="Node2D"]
-unique_name_in_owner = true
-offset_left = -24.0
-offset_top = 72.0
-offset_right = 175.0
-offset_bottom = 119.0
-theme = ExtResource("4_f81le")
-text = "center: "
-
-[node name="Label2" type="Label" parent="Node2D"]
-unique_name_in_owner = true
-offset_left = -24.0
-offset_top = 110.0
-offset_right = 168.0
-offset_bottom = 157.0
-theme = ExtResource("4_f81le")
-text = "speed: "
-
 [node name="OrbitLine" parent="Node2D" instance=ExtResource("3_6nla0")]
 unique_name_in_owner = true
 
@@ -83,3 +68,11 @@ emitting = false
 amount = 500
 process_material = SubResource("ParticleProcessMaterial_hn1k8")
 texture = ExtResource("6_m2hwp")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_1pa17")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

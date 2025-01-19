@@ -4,6 +4,9 @@ extends CharacterBody2D
 var speed = 300.0
 
 @export
+var mass: float = 59.722
+
+@export
 var center: Node2D
 
 @export

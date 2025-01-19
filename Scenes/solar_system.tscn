@@ -1,25 +1,103 @@
-[gd_scene load_steps=6 format=3 uid="uid://c1y1iey62avec"]
+[gd_scene load_steps=7 format=3 uid="uid://c1y1iey62avec"]
 
 [ext_resource type="Texture2D" uid="uid://c4a5wppo830iu" path="res://Assets/icon.svg" id="1_7fdxf"]
+[ext_resource type="Script" path="res://Scenes/solar_system.gd" id="1_svxg6"]
 [ext_resource type="PackedScene" uid="uid://d0ojrocirr1jq" path="res://Scenes/Planets/Pluto/pluto.tscn" id="2_08sjl"]
 [ext_resource type="PackedScene" uid="uid://cd8d6l4opsm2d" path="res://Scenes/Planets/base_planet.tscn" id="3_cuui0"]
 [ext_resource type="Texture2D" uid="uid://boa24xmx2ojv7" path="res://Assets/Planets/planet06.png" id="4_gj5ru"]
 [ext_resource type="Texture2D" uid="uid://b2hby2abohghj" path="res://Assets/Planets/planet03.png" id="5_h718v"]
 
 [node name="SolarSystem" type="Node2D"]
+script = ExtResource("1_svxg6")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sun" type="Sprite2D" parent="."]
 texture = ExtResource("1_7fdxf")
 
-[node name="Pluto" parent="." node_paths=PackedStringArray("targetObject") instance=ExtResource("2_08sjl")]
-position = Vector2(750, 0)
+[node name="Planets" type="Node" parent="."]
+
+[node name="Mercury" parent="Planets" instance=ExtResource("3_cuui0")]
+position = Vector2(960, 0)
+speed = 470.0
+mass = 33.0
+texture = ExtResource("4_gj5ru")
+orbitalDistance = 960.0
+
+[node name="Venus" parent="Planets" node_paths=PackedStringArray("center") instance=ExtResource("3_cuui0")]
+position = Vector2(1230, 0)
+speed = 400.0
+mass = 486.0
+center = NodePath("../../Sun")
+texture = ExtResource("4_gj5ru")
+orbitalDistance = 1230.0
+
+[node name="Earth" parent="Planets" instance=ExtResource("3_cuui0")]
+position = Vector2(1525, 0)
+speed = 375.0
+mass = 597.0
+texture = ExtResource("5_h718v")
+orbitalDistance = 1525.0
+
+[node name="Mars" parent="Planets" instance=ExtResource("3_cuui0")]
+position = Vector2(1800, 0)
+speed = 325.0
+mass = 64.0
+texture = ExtResource("4_gj5ru")
+orbitalDistance = 1800.0
+
+[node name="Ceres" parent="Planets" instance=ExtResource("3_cuui0")]
+position = Vector2(2200, 0)
+mass = 50.0
+texture = ExtResource("4_gj5ru")
+orbitalDistance = 2200.0
+
+[node name="Jupiter" parent="Planets" instance=ExtResource("3_cuui0")]
+position = Vector2(2500, 0)
+speed = 200.0
+mass = 189813.0
+texture = ExtResource("4_gj5ru")
+orbitalDistance = 2500.0
+
+[node name="Saturn" parent="Planets" instance=ExtResource("3_cuui0")]
+position = Vector2(2750, 0)
+speed = 175.0
+mass = 56832.0
+texture = ExtResource("4_gj5ru")
+orbitalDistance = 2750.0
+
+[node name="Uranus" parent="Planets" instance=ExtResource("3_cuui0")]
+position = Vector2(3050, 0)
+speed = 125.0
+mass = 8681.0
+texture = ExtResource("4_gj5ru")
+orbitalDistance = 3050.0
+
+[node name="Neptune" parent="Planets" node_paths=PackedStringArray("center") instance=ExtResource("3_cuui0")]
+position = Vector2(3250, 0)
+speed = 100.0
+mass = 10240.0
+center = NodePath("../../Sun")
+texture = ExtResource("4_gj5ru")
+orbitalDistance = 3250.0
+
+[node name="Pluto" parent="Planets" node_paths=PackedStringArray("targetObject") instance=ExtResource("2_08sjl")]
+position = Vector2(3700, 0)
+motion_mode = 1
+speed = 75.0
+orbitalDistance = 3700.0
 targetObject = NodePath("../Earth")
 
-[node name="Mercury" parent="." instance=ExtResource("3_cuui0")]
-position = Vector2(400, 0)
-speed = 400.0
+[node name="Makemake" parent="Planets" node_paths=PackedStringArray("center") instance=ExtResource("3_cuui0")]
+position = Vector2(4000, 0)
+speed = 90.0
+mass = 3.0
+center = NodePath("../../Sun")
 texture = ExtResource("4_gj5ru")
+orbitalDistance = 4000.0
 
-[node name="Earth" parent="." instance=ExtResource("3_cuui0")]
-position = Vector2(550, 0)
-texture = ExtResource("5_h718v")
+[node name="Eris" parent="Planets" node_paths=PackedStringArray("center") instance=ExtResource("3_cuui0")]
+position = Vector2(4225, 0)
+speed = 100.0
+mass = 3.0
+center = NodePath("../../Sun")
+texture = ExtResource("4_gj5ru")
+orbitalDistance = 4225.0

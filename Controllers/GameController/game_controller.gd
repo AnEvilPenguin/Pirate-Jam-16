@@ -10,11 +10,12 @@ var _world2d := $World2D
 var _loadedScenes: Dictionary
 
 var _mainMenu: MainMenu
+var playerInfoPanel: PlayerInformationPanel
 
 var SkipTutorial: bool
 
 func _ready():
-	Global.GameContoller = self
+	Global.gameController = self
 	_mainMenu = LoadControlScene("res://UI/main_menu.tscn")
 
 
@@ -54,7 +55,10 @@ func NewGame():
 	if (SkipTutorial):
 		 # TODO this
 		UnloadScene("res://UI/Tutorial/root_tutorial.tscn")
+		
+		playerInfoPanel = LoadControlScene("res://UI/Components/user_interface.tscn")
 		LoadWorldScene("res://Scenes/solar_system.tscn")
+		
 		return
 	
 	LoadControlScene("res://UI/Tutorial/root_tutorial.tscn")

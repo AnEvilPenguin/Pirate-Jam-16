@@ -1,3 +1,4 @@
 extends Node
 
-var GameContoller: GameController
+var gameController: GameController
+var solarSystem: SolarSystem

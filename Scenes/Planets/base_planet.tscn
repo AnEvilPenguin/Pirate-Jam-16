@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dmb1oatxee3p6" path="res://Scenes/Components/orbit_line.tscn" id="2_h8juc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7avgr"]
-radius = 50.0
+radius = 51.0
 
 [node name="BasePlanet" type="CharacterBody2D"]
 z_index = 1
@@ -19,3 +19,8 @@ scale = Vector2(0.1, 0.1)
 shape = SubResource("CircleShape2D_7avgr")
 
 [node name="OrbitLine" parent="." instance=ExtResource("2_h8juc")]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_7avgr")
