@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dmb1oatxee3p6" path="res://Scenes/Components/orbit_line.tscn" id="2_h8juc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7avgr"]
-radius = 49.0
+radius = 50.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bm0af"]
 radius = 52.0
@@ -12,6 +12,7 @@ radius = 52.0
 [node name="BasePlanet" type="CharacterBody2D"]
 z_index = 1
 z_as_relative = false
+collision_mask = 0
 motion_mode = 1
 script = ExtResource("1_mmngi")
 

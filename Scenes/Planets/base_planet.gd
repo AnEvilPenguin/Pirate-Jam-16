@@ -26,6 +26,8 @@ var _orbitLine: OrbitLine = $OrbitLine
 
 var _centerPosition: Vector2
 
+var _destroyed = false
+
 func _ready():
 	if (texture):
 		$Sprite2D.texture = texture
@@ -48,6 +50,10 @@ func _process(_delta):
 		$Sprite2D.scale = textureScale
 		return
 	elif (Engine.is_editor_hint()):
+		return
+	
+	if (_destroyed):
+		queue_free()
 		return
 	
 	if (center):
@@ -93,10 +99,7 @@ func Destroy():
 			child.SetCenter(center)
 	
 	visible = false
-	
-	(func():
-		queue_free()
-	).call_deferred()
+	_destroyed = true
 
 
 func SetCenter(Center: Node2D):

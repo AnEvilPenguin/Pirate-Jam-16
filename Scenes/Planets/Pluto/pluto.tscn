@@ -26,6 +26,7 @@ radius = 53.0
 [node name="Pluto" type="CharacterBody2D"]
 z_index = 1
 z_as_relative = false
+collision_mask = 0
 slide_on_ceiling = false
 script = ExtResource("1_4sphj")
 
