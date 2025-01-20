@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://dsja7eqtuo218"]
+
+[ext_resource type="Shader" path="res://Util/Shaders/star.gdshader" id="1_1ssjh"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a6xfc"]
+shader = ExtResource("1_1ssjh")
+shader_parameter/brightness = 0.5
+shader_parameter/ray_brightness = 10.0
+shader_parameter/gamma = 8.0
+shader_parameter/spot_brightness = 10.0
+shader_parameter/ray_density = 20.0
+shader_parameter/curvature = 15.0
+shader_parameter/rgb = Vector3(4, 1, 0.1)
+shader_parameter/sin_freq = 1.0
+shader_parameter/radius = 0.01
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_da14u"]
+
+[node name="Star" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_a6xfc")
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(5, 5)
+texture = SubResource("CanvasTexture_da14u")

@@ -1,18 +1,23 @@
-[gd_scene load_steps=8 format=3 uid="uid://c1y1iey62avec"]
+[gd_scene load_steps=9 format=3 uid="uid://c1y1iey62avec"]
 
-[ext_resource type="Texture2D" uid="uid://c4a5wppo830iu" path="res://Assets/icon.svg" id="1_7fdxf"]
 [ext_resource type="Script" path="res://Scenes/solar_system.gd" id="1_svxg6"]
 [ext_resource type="PackedScene" uid="uid://d0ojrocirr1jq" path="res://Scenes/Planets/Pluto/pluto.tscn" id="2_08sjl"]
+[ext_resource type="PackedScene" uid="uid://dsja7eqtuo218" path="res://Scenes/Components/star.tscn" id="3_873oj"]
 [ext_resource type="PackedScene" uid="uid://cd8d6l4opsm2d" path="res://Scenes/Planets/base_planet.tscn" id="3_cuui0"]
 [ext_resource type="Texture2D" uid="uid://boa24xmx2ojv7" path="res://Assets/Planets/planet06.png" id="4_gj5ru"]
 [ext_resource type="Texture2D" uid="uid://b2hby2abohghj" path="res://Assets/Planets/planet03.png" id="5_h718v"]
 [ext_resource type="Texture2D" uid="uid://cfj0owf7grk2d" path="res://Assets/Planets/meteor_detailedLarge.png" id="6_npdxg"]
 
+[sub_resource type="CanvasTexture" id="CanvasTexture_bambx"]
+
 [node name="SolarSystem" type="Node2D"]
 script = ExtResource("1_svxg6")
 
 [node name="Sun" type="Sprite2D" parent="."]
-texture = ExtResource("1_7fdxf")
+texture = SubResource("CanvasTexture_bambx")
+
+[node name="Star" parent="Sun" instance=ExtResource("3_873oj")]
+scale = Vector2(500, 500)
 
 [node name="Planets" type="Node" parent="."]
 
