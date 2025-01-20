@@ -11,6 +11,7 @@ var _loadedScenes: Dictionary
 
 var _mainMenu: MainMenu
 var _gameOver
+var _victory
 
 var playerInfoPanel: PlayerInformationPanel
 
@@ -22,9 +23,14 @@ var SkipTutorial: bool
 
 func _ready():
 	Global.gameController = self
+	
 	_mainMenu = LoadControlScene("res://UI/main_menu.tscn")
+	
 	_gameOver = LoadControlScene("res://UI/Components/game_over.tscn")
 	_gameOver.visible = false
+	
+	_victory = LoadControlScene("res://UI/Components/victory.tscn")
+	_victory.visible = false
 
 
 func LoadWorldScene(path: String):
@@ -65,12 +71,15 @@ func _loadGenericScene(path: String, parent: Node):
 func NewGame():
 	_mainMenu.visible = false
 	_gameOver.visible = false
+	_victory.visible = false
+	
 	get_tree().paused = false
+	
+	ResetGame()
 	
 	if (playerInfoPanel):
 		playerInfoPanel.visible = true
-	
-	ResetGame()
+		playerInfoPanel.SetScore(_score)
 	
 	if (SkipTutorial):
 		UnloadScene("res://UI/Tutorial/root_tutorial.tscn")
@@ -90,6 +99,7 @@ func ResetGame():
 func ShowMainMenu():
 	PauseGame()
 	_gameOver.visible = false
+	_victory.visible = false
 	_mainMenu.visible = true
 
 func PauseGame():
@@ -102,6 +112,11 @@ func ContinueGame():
 func GameOver():
 	PauseGame()
 	_gameOver.visible = true
+
+func Victory():
+	PauseGame()
+	_victory.SetScore(_score)
+	_victory.visible = true
 
 func AddScore(value: float):
 	_score += abs(value)

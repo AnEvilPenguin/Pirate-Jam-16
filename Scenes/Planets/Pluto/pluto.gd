@@ -133,13 +133,14 @@ func _on_area_2d_body_entered(body: Node2D):
 	if (mass > body.mass):
 		# TODO some sort of animation or effect or whatever?
 		# Bigger numbers = more good
-		_gameController.playerInfoPanel.AddScore(my_mass_x_speed - their_mass_x_speed)
-		
+		_gameController.AddScore(my_mass_x_speed - their_mass_x_speed)
 		mass += body.mass
+		
+		if (body.name == "Earth"):
+			_gameController.Victory()
 		
 		body.Destroy()
 		
 		_gameController.playerInfoPanel.SetMass(mass)
 	else:
-		printerr("Game Over!")
 		_gameController.GameOver()
