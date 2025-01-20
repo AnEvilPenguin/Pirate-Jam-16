@@ -16,88 +16,89 @@ texture = ExtResource("1_7fdxf")
 [node name="Planets" type="Node" parent="."]
 
 [node name="Mercury" parent="Planets" instance=ExtResource("3_cuui0")]
-position = Vector2(960, 0)
+position = Vector2(1440, 0)
 speed = 470.0
-mass = 33.0
+mass = 5.0
 texture = ExtResource("4_gj5ru")
-orbitalDistance = 960.0
+orbitalDistance = 1440.0
 
 [node name="Venus" parent="Planets" node_paths=PackedStringArray("center") instance=ExtResource("3_cuui0")]
-position = Vector2(1230, 0)
+position = Vector2(1845, 0)
 speed = 400.0
-mass = 486.0
+mass = 9.0
 center = NodePath("../../Sun")
 texture = ExtResource("4_gj5ru")
-orbitalDistance = 1230.0
+orbitalDistance = 1845.0
 
 [node name="Earth" parent="Planets" instance=ExtResource("3_cuui0")]
-position = Vector2(1525, 0)
+position = Vector2(2288, 0)
 speed = 375.0
-mass = 597.0
+mass = 10.0
 texture = ExtResource("5_h718v")
-orbitalDistance = 1525.0
+orbitalDistance = 2288.0
 
 [node name="Mars" parent="Planets" instance=ExtResource("3_cuui0")]
-position = Vector2(1800, 0)
+position = Vector2(2700, 0)
 speed = 325.0
-mass = 64.0
+mass = 6.0
 texture = ExtResource("4_gj5ru")
-orbitalDistance = 1800.0
+orbitalDistance = 2700.0
 
 [node name="Ceres" parent="Planets" instance=ExtResource("3_cuui0")]
-position = Vector2(2200, 0)
-mass = 50.0
+position = Vector2(3300, 0)
+mass = 5.6
 texture = ExtResource("4_gj5ru")
-orbitalDistance = 2200.0
+orbitalDistance = 3300.0
 
 [node name="Jupiter" parent="Planets" instance=ExtResource("3_cuui0")]
-position = Vector2(2500, 0)
+position = Vector2(3750, 0)
 speed = 200.0
-mass = 189813.0
+mass = 17.53
 texture = ExtResource("4_gj5ru")
-orbitalDistance = 2500.0
+orbitalDistance = 3750.0
 
 [node name="Saturn" parent="Planets" instance=ExtResource("3_cuui0")]
-position = Vector2(2750, 0)
+position = Vector2(4125, 0)
 speed = 175.0
-mass = 56832.0
+mass = 15.7
 texture = ExtResource("4_gj5ru")
-orbitalDistance = 2750.0
+orbitalDistance = 4125.0
 
 [node name="Uranus" parent="Planets" instance=ExtResource("3_cuui0")]
-position = Vector2(3050, 0)
+position = Vector2(4575, 0)
 speed = 125.0
-mass = 8681.0
+mass = 13.0
 texture = ExtResource("4_gj5ru")
-orbitalDistance = 3050.0
+orbitalDistance = 4575.0
 
 [node name="Neptune" parent="Planets" node_paths=PackedStringArray("center") instance=ExtResource("3_cuui0")]
-position = Vector2(3250, 0)
+position = Vector2(4875, 0)
 speed = 100.0
-mass = 10240.0
+mass = 13.3
 center = NodePath("../../Sun")
 texture = ExtResource("4_gj5ru")
-orbitalDistance = 3250.0
+orbitalDistance = 4875.0
 
 [node name="Pluto" parent="Planets" node_paths=PackedStringArray("targetObject") instance=ExtResource("2_08sjl")]
-position = Vector2(3700, 0)
+position = Vector2(5550, 0)
 motion_mode = 1
 speed = 75.0
-orbitalDistance = 3700.0
+mass = 3.7
+orbitalDistance = 5550.0
 targetObject = NodePath("../Earth")
 
 [node name="Makemake" parent="Planets" node_paths=PackedStringArray("center") instance=ExtResource("3_cuui0")]
-position = Vector2(4000, 0)
+position = Vector2(6000, 0)
 speed = 90.0
-mass = 3.0
+mass = 1.5
 center = NodePath("../../Sun")
 texture = ExtResource("4_gj5ru")
-orbitalDistance = 4000.0
+orbitalDistance = 6000.0
 
 [node name="Eris" parent="Planets" node_paths=PackedStringArray("center") instance=ExtResource("3_cuui0")]
-position = Vector2(4225, 0)
+position = Vector2(6338, 0)
 speed = 100.0
-mass = 3.0
+mass = 1.5
 center = NodePath("../../Sun")
 texture = ExtResource("4_gj5ru")
-orbitalDistance = 4225.0
+orbitalDistance = 6338.0
