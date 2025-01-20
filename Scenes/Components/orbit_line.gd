@@ -25,8 +25,6 @@ var widthFactor= 1.5
 @export
 var color: Color = Color.RED
 
-var _lastDistance: float
-
 
 # TODO get target, just parent?
 # TODO put target name just above line
@@ -48,9 +46,7 @@ func _unhandled_input(_event):
 func _process(_delta):
 	$Line2D.default_color = color
 	
-	if (_lastDistance != distance):
-		_draw_circle_at_point(centerPoint, distance, pointCount)
-		_lastDistance = distance
+	_draw_circle_at_point(centerPoint, distance, pointCount)
 
 func _draw_circle_at_point(center, radius, points):
 	line.clear_points()

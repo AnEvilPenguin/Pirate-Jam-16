@@ -1,3 +1,4 @@
+@tool
 extends CharacterBody2D
 
 @export
@@ -13,6 +14,9 @@ var center: Node2D
 var texture: Texture2D
 
 @export
+var textureScale: Vector2 = Vector2(0.1, 0.1)
+
+@export
 var orbitalDistance: float
 
 @onready
@@ -21,7 +25,9 @@ var _orbitLine: OrbitLine = $OrbitLine
 var _centerPosition: Vector2
 
 func _ready():
-	$Sprite2D.texture = texture
+	if (texture):
+		$Sprite2D.texture = texture
+		$Sprite2D.scale = textureScale
 	
 	if (orbitalDistance < 1.0):
 		orbitalDistance = global_position.x
@@ -32,30 +38,41 @@ func _ready():
 		_centerPosition = Vector2.ZERO
 	else:
 		_centerPosition = center.global_position
+		_orbitLine.centerPoint = _centerPosition
 
 func _process(_delta):
+	if(Engine.is_editor_hint() && texture):
+		$Sprite2D.texture = texture
+		$Sprite2D.scale = textureScale
+		return
+	elif (Engine.is_editor_hint()):
+		return
+	
 	if (center):
 		_centerPosition = center.global_position
+		_orbitLine.centerPoint = _centerPosition
 	
 	var player = Global.gameController.player
 	
-	var my_mass_x_speed = mass * speed
-	var their_mass_x_speed = player.mass * abs(player.speed)
+	var my_mass = mass
+	var their_mass = player.mass
 	
-	# TODO set line hue based on whether player can hit successfully or not
 	
-	var hitPercent = their_mass_x_speed / my_mass_x_speed * 100
+	var hitPercent = their_mass / my_mass * 100
 	
 	# hue 0 - 120 (red - to green)
 	var hue = hitPercent * 1.2
 	var clamped = clamp(hue, 0.0, 120.0)
 	
-		
+	# Set line color based on whether player can successfully hit or not
 	var newColor = Color.from_hsv(clamped / 360.0, 1.0, 1.0)
 	
 	_orbitLine.color = newColor
 
 func _physics_process(_delta):
+	if(Engine.is_editor_hint()):
+		return
+	
 	var dirToCenter = global_position - _centerPosition
 	
 	velocity = dirToCenter.orthogonal().limit_length(speed);

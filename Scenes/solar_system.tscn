@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c1y1iey62avec"]
+[gd_scene load_steps=8 format=3 uid="uid://c1y1iey62avec"]
 
 [ext_resource type="Texture2D" uid="uid://c4a5wppo830iu" path="res://Assets/icon.svg" id="1_7fdxf"]
 [ext_resource type="Script" path="res://Scenes/solar_system.gd" id="1_svxg6"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cd8d6l4opsm2d" path="res://Scenes/Planets/base_planet.tscn" id="3_cuui0"]
 [ext_resource type="Texture2D" uid="uid://boa24xmx2ojv7" path="res://Assets/Planets/planet06.png" id="4_gj5ru"]
 [ext_resource type="Texture2D" uid="uid://b2hby2abohghj" path="res://Assets/Planets/planet03.png" id="5_h718v"]
+[ext_resource type="Texture2D" uid="uid://cfj0owf7grk2d" path="res://Assets/Planets/meteor_detailedLarge.png" id="6_npdxg"]
 
 [node name="SolarSystem" type="Node2D"]
 script = ExtResource("1_svxg6")
@@ -20,6 +21,7 @@ position = Vector2(1440, 0)
 speed = 470.0
 mass = 5.0
 texture = ExtResource("4_gj5ru")
+textureScale = Vector2(0.1, 0.1)
 orbitalDistance = 1440.0
 
 [node name="Venus" parent="Planets" node_paths=PackedStringArray("center") instance=ExtResource("3_cuui0")]
@@ -28,6 +30,7 @@ speed = 400.0
 mass = 9.0
 center = NodePath("../../Sun")
 texture = ExtResource("4_gj5ru")
+textureScale = Vector2(0.1, 0.1)
 orbitalDistance = 1845.0
 
 [node name="Earth" parent="Planets" instance=ExtResource("3_cuui0")]
@@ -35,19 +38,33 @@ position = Vector2(2288, 0)
 speed = 375.0
 mass = 10.0
 texture = ExtResource("5_h718v")
+textureScale = Vector2(0.1, 0.1)
 orbitalDistance = 2288.0
+
+[node name="Moon" parent="Planets/Earth" node_paths=PackedStringArray("center") instance=ExtResource("3_cuui0")]
+position = Vector2(150, 0)
+scale = Vector2(0.3, 0.3)
+velocity = Vector2(-120.07, -408.203)
+speed = 800.0
+mass = 3.0
+center = NodePath("..")
+texture = ExtResource("6_npdxg")
+textureScale = Vector2(2, 2)
+orbitalDistance = 150.0
 
 [node name="Mars" parent="Planets" instance=ExtResource("3_cuui0")]
 position = Vector2(2700, 0)
 speed = 325.0
 mass = 6.0
 texture = ExtResource("4_gj5ru")
+textureScale = Vector2(0.1, 0.1)
 orbitalDistance = 2700.0
 
 [node name="Ceres" parent="Planets" instance=ExtResource("3_cuui0")]
 position = Vector2(3300, 0)
 mass = 5.6
 texture = ExtResource("4_gj5ru")
+textureScale = Vector2(0.1, 0.1)
 orbitalDistance = 3300.0
 
 [node name="Jupiter" parent="Planets" instance=ExtResource("3_cuui0")]
@@ -55,6 +72,7 @@ position = Vector2(3750, 0)
 speed = 200.0
 mass = 17.53
 texture = ExtResource("4_gj5ru")
+textureScale = Vector2(0.1, 0.1)
 orbitalDistance = 3750.0
 
 [node name="Saturn" parent="Planets" instance=ExtResource("3_cuui0")]
@@ -62,6 +80,7 @@ position = Vector2(4125, 0)
 speed = 175.0
 mass = 15.7
 texture = ExtResource("4_gj5ru")
+textureScale = Vector2(0.1, 0.1)
 orbitalDistance = 4125.0
 
 [node name="Uranus" parent="Planets" instance=ExtResource("3_cuui0")]
@@ -69,6 +88,7 @@ position = Vector2(4575, 0)
 speed = 125.0
 mass = 13.0
 texture = ExtResource("4_gj5ru")
+textureScale = Vector2(0.1, 0.1)
 orbitalDistance = 4575.0
 
 [node name="Neptune" parent="Planets" node_paths=PackedStringArray("center") instance=ExtResource("3_cuui0")]
@@ -77,6 +97,7 @@ speed = 100.0
 mass = 13.3
 center = NodePath("../../Sun")
 texture = ExtResource("4_gj5ru")
+textureScale = Vector2(0.1, 0.1)
 orbitalDistance = 4875.0
 
 [node name="Pluto" parent="Planets" node_paths=PackedStringArray("targetObject") instance=ExtResource("2_08sjl")]
@@ -84,6 +105,7 @@ position = Vector2(5550, 0)
 motion_mode = 1
 speed = 75.0
 mass = 3.7
+massCost = 0.05
 orbitalDistance = 5550.0
 targetObject = NodePath("../Earth")
 
@@ -93,6 +115,7 @@ speed = 90.0
 mass = 1.5
 center = NodePath("../../Sun")
 texture = ExtResource("4_gj5ru")
+textureScale = Vector2(0.1, 0.1)
 orbitalDistance = 6000.0
 
 [node name="Eris" parent="Planets" node_paths=PackedStringArray("center") instance=ExtResource("3_cuui0")]
@@ -101,4 +124,5 @@ speed = 100.0
 mass = 1.5
 center = NodePath("../../Sun")
 texture = ExtResource("4_gj5ru")
+textureScale = Vector2(0.1, 0.1)
 orbitalDistance = 6338.0
