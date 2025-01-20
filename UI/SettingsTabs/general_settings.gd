@@ -7,13 +7,13 @@ func Load():
 	$VBoxContainer/HBoxContainer/SkipTutorialCheckButton.button_pressed = _skipTutorial
 
 func Save():
-	Global.GameContoller.SkipTutorial = _skipTutorial
+	Global.gameController.SkipTutorial = _skipTutorial
 
 func Back():
 	_reload_settings()
 
 func _reload_settings():
-	_skipTutorial = Global.GameContoller.SkipTutorial
+	_skipTutorial = Global.gameController.SkipTutorial
 
 
 func _on_skip_tutorial_check_button_pressed():

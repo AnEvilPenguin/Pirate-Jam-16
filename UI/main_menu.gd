@@ -15,7 +15,7 @@ func _on_new_pressed():
 
 func _on_settings_pressed():
 	if (!_settings):
-		_settings = Global.GameController.LoadControlScene("res://UI/settings.tscn")
+		_settings = Global.gameController.LoadControlScene("res://UI/settings.tscn")
 		_settings.closing.connect(_on_settings_closing)
 	
 	visible = false
