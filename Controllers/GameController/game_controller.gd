@@ -16,6 +16,8 @@ var playerInfoPanel: PlayerInformationPanel
 
 var player: Pluto
 
+var _score: float
+
 var SkipTutorial: bool
 
 func _ready():
@@ -81,6 +83,7 @@ func NewGame():
 	LoadControlScene("res://UI/Tutorial/root_tutorial.tscn")
 
 func ResetGame():
+	_score = 0
 	UnloadScene("res://Scenes/solar_system.tscn")
 	get_tree().paused = false
 
@@ -100,9 +103,12 @@ func GameOver():
 	PauseGame()
 	_gameOver.visible = true
 
+func AddScore(value: float):
+	_score += abs(value)
+	playerInfoPanel.SetScore(_score)
+
 func _on_window_size_changed():
 	_set_background_size()
-
 
 func _set_background_size():
 	$CanvasLayer/BackgroundColorRect.size = get_viewport().size
