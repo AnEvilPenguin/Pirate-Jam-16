@@ -65,6 +65,9 @@ func NewGame():
 	_gameOver.visible = false
 	get_tree().paused = false
 	
+	if (playerInfoPanel):
+		playerInfoPanel.visible = true
+	
 	ResetGame()
 	
 	if (SkipTutorial):
