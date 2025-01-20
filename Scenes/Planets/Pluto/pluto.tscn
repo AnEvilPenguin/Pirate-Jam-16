@@ -21,7 +21,7 @@ linear_accel_min = -2.23517e-06
 linear_accel_max = -2.23517e-06
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1pa17"]
-radius = 52.0
+radius = 53.0
 
 [node name="Pluto" type="CharacterBody2D"]
 z_index = 1

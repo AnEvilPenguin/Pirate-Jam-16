@@ -132,13 +132,12 @@ func _on_area_2d_body_entered(body: Node2D):
 	
 	if (mass > body.mass):
 		# TODO some sort of animation or effect or whatever?
-		
 		# Bigger numbers = more good
 		_gameController.playerInfoPanel.AddScore(my_mass_x_speed - their_mass_x_speed)
 		
-		body.visible = false
-		body.queue_free()
-		mass += 2 * body.mass
+		mass += body.mass
+		
+		body.Destroy()
 		
 		_gameController.playerInfoPanel.SetMass(mass)
 	else:

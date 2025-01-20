@@ -1,6 +1,8 @@
 @tool
 extends CharacterBody2D
 
+class_name BasePlanet
+
 @export
 var speed = 300.0
 
@@ -57,8 +59,7 @@ func _process(_delta):
 	var my_mass = mass
 	var their_mass = player.mass
 	
-	
-	var hitPercent = their_mass / my_mass * 100
+	var hitPercent = their_mass / (my_mass * 2) * 100
 	
 	# hue 0 - 120 (red - to green)
 	var hue = hitPercent * 1.2
@@ -82,3 +83,26 @@ func _physics_process(_delta):
 	
 	# move_and_slide uses delta automaticslly
 	move_and_slide()
+
+
+func Destroy():
+	for child in get_children():
+		if(child.get_class() == 'CharacterBody2D'):
+			child.reparent(get_parent())
+
+			child.SetCenter(center)
+	
+	visible = false
+	
+	(func():
+		queue_free()
+	).call_deferred()
+
+
+func SetCenter(Center: Node2D):
+	center = Center
+	
+	orbitalDistance = (global_position - center.global_position).length()
+	
+	_orbitLine.centerPoint = center.global_position
+	_orbitLine.distance = orbitalDistance
